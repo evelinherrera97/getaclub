@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "getaclub-8abb6": {
+      "hosting": {
+        "getaclub": [
+          "getaclub-8abb6"
+        ]
+      }
+    }
+  }
+}
