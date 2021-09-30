@@ -1,0 +1,11 @@
+.row { 
+    height: 100vh;
+    .item {
+        transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
+        cursor: pointer;
+        &:hover {
+            background-color: #525252;
+        }
+    }
+
+ }

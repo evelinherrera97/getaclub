@@ -10,6 +10,7 @@ import { MainService } from '../../serivces/main.service';
 export class CreateCharacterComponent implements OnInit {
 
   public image: any;
+  public showAlert = false;
 
 
   createCharacter = new FormGroup({
@@ -26,19 +27,26 @@ export class CreateCharacterComponent implements OnInit {
 
 
   constructor(
-   public mainService: MainService
+    public mainService: MainService
   ) { }
 
   ngOnInit(): void {
   }
 
-  getImage(event:any){
-    this.image = event.target.files[0]
-    // console.log(event.target.files[0]);
-    
+  getImage(event: any) {
+    this.image = event.target.files[0];
+
   }
   sendCharacter() {
-    this.mainService.uploadImage(this.createCharacter, this.image)
+    this.showAlert = false;
+    if (this.createCharacter.valid) {
+      this.mainService.uploadImage(this.createCharacter, this.image).subscribe(resp => {
+        this.showAlert = true;
+      })
+    } else {
+      //terminar de validar form
+      this.showAlert = true
+    }
   }
 
 }

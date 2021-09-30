@@ -1,11 +1,22 @@
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <h1>crea tu usuario</h1>
+    <div class="row my-4">
+        <div class="col-12">
+            <p class="fs-2 text-center">Crea tu personaje</p>
+        </div>
+        <div class="col-12">
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum dignissimos ex
+                voluptatum perferendis
+                repellat? Ducimus ratione unde illo obcaecati, nostrum natus quis commodi ab possimus minus tempore
+                voluptates laborum aliquam.</p>
         </div>
     </div>
 
-    <form [formGroup]="createCharacter" class="row">
+    <div *ngIf="showAlert" class="alert alert-success" role="alert">
+        Personaje creado
+    </div>
+
+
+    <form [formGroup]="createCharacter" class="row justify-content-center">
         <div class="form-floating col-sm-12 col-md-6 mt-4">
             <input type="text" class="form-control" id="character" placeholder="pikapika"
                 formControlName="nameCharacter">
@@ -19,9 +30,9 @@
         <div class="form-floating col-sm-12 col-md-6 mt-4">
             <select class="form-select" id="floatingSelect" placeholder="Admin" formControlName="rolCharacter">
                 <option selected></option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="arquero">Arquero</option>
+                <option value="asesino">Asesino</option>
+                <option value="hada">Hada</option>
             </select>
             <label for="floatingSelect">Rol en el juego</label>
 
@@ -29,9 +40,9 @@
         <div class="form-floating col-sm-12 col-md-6 mt-4">
             <select class="form-select" id="floatingSelect" placeholder="Amable" formControlName="personality">
                 <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="agresivo">Agresivo</option>
+                <option value="alegre">Alegre</option>
+                <option value="amoroso">Amoroso</option>
             </select>
             <label for="floatingSelect">Personalidad</label>
         </div>
@@ -61,11 +72,14 @@
             <input class="form-control form-control-lg" id="formFileLg" type="file" placeholder="file"
                 formControlName="avatar" (change)="getImage($event)">
         </div>
-        <div class="d-lg-flex">
-            <app-button [type]="'btn-secondary'" [text]="'Cancelar'" [id]="'button-cancelar'"></app-button>
-            <app-button [type]="'btn-primary'" [text]="'Crear personaje'" [id]="'button-create'" (click)="sendCharacter()"></app-button>
 
-        </div>
+        <app-button class="my-4" [type]="'btn-primary'" [text]="'Crear personaje'" [id]="'button-create'"
+            (click)="sendCharacter()">
+        </app-button>
+        <app-button [type]="'btn-secondary'" [text]="'Cancelar'" [id]="'button-cancelar'" routerLink="/home">
+        </app-button>
+
+
     </form>
 
 

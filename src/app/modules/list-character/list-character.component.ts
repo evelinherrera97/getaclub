@@ -9,26 +9,26 @@ import { MainService } from 'src/app/serivces/main.service';
 export class ListCharacterComponent implements OnInit {
 
   public list: any
+  public isLoading: boolean;
 
   constructor(
     public mainService: MainService
   ) { }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.mainService.getCharacters().subscribe(data => {
+      this.isLoading = false;
       this.list = data
       console.log(this.list);
     })
   }
 
   deleteItem(index: number) {
-    this.list.splice(index, 1)
-    console.log('index', index);
-    console.log('HOOO', this.list);
-    
+    this.list.splice(index, 1)    
   }
 
-  updateItem() {
-  }
+  updateItem(index:number) {}
+    
 
 }

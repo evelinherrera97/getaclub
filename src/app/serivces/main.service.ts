@@ -25,21 +25,20 @@ export class MainService {
 
     return this.character;
   }
+
+
   public createAccount(data: any, downloadURL:any) {
-    data.value.avatar = downloadURL
-    console.log(data.value);
-    
-    return this.afs.collection('character').add(data.value);
+    data.value.avatar = downloadURL;
+    this.afs.collection('character').add(data.value);
   }
 
-  public uploadImage(dataForm:any, image:FileUpload) {
+  public uploadImage(dataForm:any, image:FileUpload) : Observable<any> {
     const file = `image/${image.name}`
     const fileRef = this.storage.ref(file)
     const uploadTask = this.storage.upload(file, image);
     uploadTask.snapshotChanges().pipe(
       finalize(() => {
         fileRef.getDownloadURL().subscribe(downloadURL => {
-          console.log(downloadURL)
           image.url = downloadURL;
           this.createAccount(dataForm, downloadURL)
         });
@@ -47,6 +46,7 @@ export class MainService {
     ).subscribe();
     return uploadTask.percentageChanges();
   }
+
 
 
   // private deleteFileDatabase(key: string): Promise<void> {
@@ -63,9 +63,3 @@ export class FileUpload {
   file: File;
 } 
 
-export class Character {
-  key: string;
-  name: string;
-  url: string;
-  file: File;
-} 
