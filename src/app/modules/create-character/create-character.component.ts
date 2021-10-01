@@ -40,7 +40,7 @@ export class CreateCharacterComponent implements OnInit {
   sendCharacter() {
     this.showAlert = false;
     if (this.createCharacter.valid) {
-      this.mainService.uploadImage(this.createCharacter, this.image).subscribe(resp => {
+      this.mainService.uploadImage(this.createCharacter.value, this.image).subscribe(resp => {
         this.showAlert = true;
       })
     } else {

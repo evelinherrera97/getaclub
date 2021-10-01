@@ -19,8 +19,7 @@ export class ListCharacterComponent implements OnInit {
     this.isLoading = true;
     this.mainService.getCharacters().subscribe(data => {
       this.isLoading = false;
-      this.list = data
-      console.log(this.list);
+      this.list = data;
     })
   }
 

@@ -2,26 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Conexion a Firebase
+Conexion a base de datos publica en firebase con la coleccion **Character** que almacena los personajes [Firebase](https://console.firebase.google.com/u/0/project/getaclub-8abb6/firestore/data/~2Fcharacter~2FC9iqNL8szyc2ZK7FTeei?hl=es-419), las imagenes es guardan en el Storage el cual genera un link y ese link es el que se almacena en el catalogo [Storage](https://console.firebase.google.com/u/0/project/getaclub-8abb6/storage/getaclub-8abb6.appspot.com/files?hl=es-419)
 
-## Code scaffolding
+##  Estructura
+### Modules 
+Componentes principales del proyectp
+### Services
+**main.services.ts** conecta la base de datos con las vistas
+### Shared 
+componestes, interfaces
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
